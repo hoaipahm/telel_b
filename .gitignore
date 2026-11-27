@@ -1,0 +1,52 @@
+# Secrets, vaults & local runtime state (NEVER commit)
+.env
+.env.*
+!.env.example
+data/
+/backend/data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.key
+*.pem
+*.pfx
+*.token
+
+# Windows local shortcuts (embed user-specific paths)
+*.lnk
+
+# Python
+.venv/
+/backend/.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / Next.js
+node_modules/
+/frontend/node_modules/
+/frontend/.next/
+/frontend/out/
+/frontend/coverage/
+/frontend/next-env.d.ts
+*.tsbuildinfo
+npm-debug.log*
+
+# .NET Desktop build outputs
+/desktop/bin/
+/desktop/obj/
+/desktop/publish/
+*.exe
+*.dll
+*.pdb
+*.user
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vs/
