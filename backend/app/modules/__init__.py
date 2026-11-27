@@ -1,0 +1,1 @@
+"""Modular bot capabilities."""

@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      API_HOST: 0.0.0.0
+      API_PORT: "8000"
+      DATA_DIR: /app/data
+      ALLOWED_ORIGINS: http://127.0.0.1:3000,http://localhost:3000
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - telemind_data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      BACKEND_URL: http://backend:8000
+      WEB_ADMIN_TOKEN: ${WEB_ADMIN_TOKEN:-}
+    ports:
+      - "127.0.0.1:3000:3000"
+
+volumes:
+  telemind_data:
